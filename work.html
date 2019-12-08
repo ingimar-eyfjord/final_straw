@@ -15,19 +15,22 @@
 	
 <!-- the featured section is for the featured content, here the featured elements will append, and the styling needs to be different from the work section -->
 <section class="featured">
-  <button class="carousel_button">
+  <button class="carousel_button carousel_button--left"><img src="graphics/previous.svg" alt=""/>
 	</button>
-	<div class="carasoul-track-container">
+	
+	<div class="carousel-track-container">
 	<div class="carousel_track">
 		
-		<div class="carousel-slide"></div>
-		<div class="carousel-slide"></div>
-		<div class="carousel-slide"></div>
 		
 		</div>
 	</div>
-	<button class="carousel_button"></button>
+	
+	<button class="carousel_button carousel_button--right"><img src="graphics/next.svg" alt=""/></button>
+		<div class="caroselnav"></div>
 </section>
+	
+
+	
 	<!-- the work section holds all the work, here we need a grid and flex system to align all the elements, and then click for more loads. -->
 	<section id="work"> </section>
 	
@@ -35,7 +38,11 @@
 	<!-- Template Section -->
 	
 	<template class="featuredtemplate">
-		<div class="postercontainer"><img class="poster" src="media/dummy/images (1).jpg" width="300" height="450" alt=""/> </div>
+		
+		<div class="carousel-slide"><img class="featuredimage" src="media/dummy/images (1).jpg" width="300" height="450" alt=""/> </div>
+		
+		<button class="caroselnavbutton"></button>
+		
 	</template>
 	
 	

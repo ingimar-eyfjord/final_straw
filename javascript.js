@@ -32,19 +32,26 @@ function featuredyes(featdata) {
 function showfeatured(featuredata){
 	const template = document.querySelector(".featuredtemplate").content;
 	const postCopy = template.cloneNode(true);
+	const carnavcopy = postCopy.querySelector("button");
 	
 	const imgPath = featuredata.cover.guid;
 	const img = postCopy.querySelector("img");
+	
 	img.setAttribute("src", imgPath)
 	img.setAttribute("alt", "Poster of the movie " + featuredata.title.rendered);
 	
 //	const h1 = postCopy.querySelector("h1");
 //	h1.textContent = featuredata.title.rendered;
 
+	function appendcarnav(){
+		if (featuredata.featured == 1){
+		document.querySelector(".caroselnav").appendChild(carnavcopy);
+	}}
+	appendcarnav()
 	function appendfeatured(){
 	
 	if (featuredata.featured == 1)
-	{document.querySelector(".featured").appendChild(postCopy);
+	{document.querySelector(".carousel_track").appendChild(postCopy);
 	}}
 	appendfeatured()
 //	console.log(featuredata.featured);
