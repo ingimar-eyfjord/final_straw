@@ -24,12 +24,14 @@ nav{}
 	width: 100vw;
 	height: 80vh;
 	grid-row: 1;
+	overflow: hidden;
 }
 .carousel_track{
 	display: flex;
 	flex-flow: row;
-	overflow: hidden;
+	height: 100%;
 	position: relative;
+	transition: transform 250ms ease-in;
 
 }
 .carousel-slide{
@@ -78,9 +80,11 @@ nav{}
 
 .carousel_button--left{
 	left: 2em;
+	z-index: 100;
 }
 .carousel_button--right{
 	right: 2em;
+	z-index: 100;
 }
 #work{
 	display: grid;

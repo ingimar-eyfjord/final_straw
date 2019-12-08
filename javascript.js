@@ -24,8 +24,59 @@ function showPost(post) {
 }
 
 function getfetured() {
-	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/work?_embed").then(res => res.json()).then(featuredyes)
+	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/work?_embed").then(res => res.json()).then(featuredyes).then(() => {
+	
+	const track = document.querySelector(".carousel_track");
+	const slides = Array.from(track.children);
+
+		
+	const nextButton = document.querySelector(".carousel_button--right");
+	const prevButton = document.querySelector(".carousel_button--left");
+		
+		
+	const dotNav = document.querySelector(".caroselnav");
+	const dots = Array.from(dotNav.children);
+		
+	slides[0].classList.add("currentSlide");
+	const slideWidth = slides[0].getBoundingClientRect().width;	
+	
+//		
+//	slides.forEach((slide, index) =>{
+//		slide.style.left = slideWidth * index + "px";
+//	})	
+	nextButton.addEventListener("click", e =>{
+	const currentSlide = track.querySelector(".currentSlide");
+	const NextSlide = currentSlide.nextElementSibling;
+	const amounttomove = NextSlide.style.transform.slideWidth;
+	
+	track.style.transform += "translateX(-33vw)";
+	currentSlide.classList.remove("currentSlide");
+	NextSlide.classList.add("currentSlide");
+		console.log(slides);
+		console.log(NextSlide);
+	})
+		
+	prevButton.addEventListener("click", e =>{
+	const currentSlide = track.querySelector(".currentSlide");
+	const prevSlide = currentSlide.previousElementSibling;
+	const amounttomove = prevSlide.style.transform.slideWidth;
+	
+	track.style.transform += "translateX(33vw)";
+	currentSlide.classList.remove("currentSlide");
+	prevSlide.classList.add("currentSlide");
+//		console.log(slides);
+//		console.log(NextSlide);
+	})
+	
+	
+	
+
+		
+		
+})
 }
+
+
 function featuredyes(featdata) {
 	featdata.forEach(showfeatured)
 }
@@ -54,6 +105,4 @@ function showfeatured(featuredata){
 	{document.querySelector(".carousel_track").appendChild(postCopy);
 	}}
 	appendfeatured()
-//	console.log(featuredata.featured);
-//	document.querySelector(".featured").appendChild(postCopy);
 }
