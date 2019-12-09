@@ -28,7 +28,8 @@ function getfetured() {
 	
 	const track = document.querySelector(".carousel_track");
 	const slides = Array.from(track.children);
-
+	const lastslide = slides.length - 4;
+		
 		
 	const nextButton = document.querySelector(".carousel_button--right");
 	const prevButton = document.querySelector(".carousel_button--left");
@@ -38,23 +39,38 @@ function getfetured() {
 	const dots = Array.from(dotNav.children);
 		
 	slides[0].classList.add("currentSlide");
+	slides[lastslide].classList.add("lastSlide");
 	const slideWidth = slides[0].getBoundingClientRect().width;	
-	
-//		
-//	slides.forEach((slide, index) =>{
-//		slide.style.left = slideWidth * index + "px";
-//	})	
+	console.log(slides);
+		
+		function removeprevbutton(){
+		if (document.querySelector(".carousel-slide").classList.contains("currentSlide")){
+		document.querySelector(".carousel_button--left").style.display = "none";}	}
+		removeprevbutton()
+
 	nextButton.addEventListener("click", e =>{
 	const currentSlide = track.querySelector(".currentSlide");
 	const NextSlide = currentSlide.nextElementSibling;
 	const amounttomove = NextSlide.style.transform.slideWidth;
+	const lastSlide = track.querySelector(".lastSlide")
 	
-	track.style.transform += "translateX(-33vw)";
-	currentSlide.classList.remove("currentSlide");
-	NextSlide.classList.add("currentSlide");
-		console.log(slides);
-		console.log(NextSlide);
+	document.querySelector(".carousel_button--left").style.display = "block";
+	
+	
+	document.querySelectorAll(".carousel-slide").forEach(e => {
+
+				if (e.classList.contains("currentSlide") && e.classList.contains("lastSlide")) {
+					console.log("object");
+					document.querySelector(".carousel_button--right").style.display = "none";
+				}
+			})
+			track.style.transform += "translateX(-33vw)";
+			currentSlide.classList.remove("currentSlide");
+			NextSlide.classList.add("currentSlide");
+//			document.querySelector(".carousel_button--right").style.display = "block";
+		removeprevbutton()
 	})
+	
 		
 	prevButton.addEventListener("click", e =>{
 	const currentSlide = track.querySelector(".currentSlide");
@@ -64,15 +80,9 @@ function getfetured() {
 	track.style.transform += "translateX(33vw)";
 	currentSlide.classList.remove("currentSlide");
 	prevSlide.classList.add("currentSlide");
-//		console.log(slides);
-//		console.log(NextSlide);
-	})
-	
-	
-	
-
-		
-		
+	document.querySelector(".carousel_button--right").style.display = "block";
+	removeprevbutton()
+	})			
 })
 }
 
@@ -94,6 +104,8 @@ function showfeatured(featuredata){
 //	const h1 = postCopy.querySelector("h1");
 //	h1.textContent = featuredata.title.rendered;
 
+//	console.log(featuredata.querySelector(".carousel-slide").classList.contains("lastslide"));
+	
 	function appendcarnav(){
 		if (featuredata.featured == 1){
 		document.querySelector(".caroselnav").appendChild(carnavcopy);
