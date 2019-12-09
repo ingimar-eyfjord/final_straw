@@ -11,7 +11,20 @@
 
 </head>
 <body>
-	<nav> </nav>
+	<header id="navbar">
+
+    <a id="logo" href="index.html">
+        <img src="graphics/esben-logo.png" alt="Esben Klemann">
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="work.html">Work</a>
+        <a href="#">About</a>
+        <a href="store.html">Store</a>
+        <a href="exhibitions.html">Exhibitions</a>
+    </nav>
+</header>
 	
 <!-- the featured section is for the featured content, here the featured elements will append, and the styling needs to be different from the work section -->
 <section class="featured">
@@ -26,7 +39,7 @@
 	</div>
 	
 	<button class="carousel_button carousel_button--right"><img src="graphics/next.svg" alt=""/></button>
-		<div class="caroselnav"></div>
+		<div class="caroselnav hidden"></div>
 </section>
 	
 
@@ -47,13 +60,13 @@
 	
 	
 	<template class="template">
-  <div class="workinfo">
+ <a class="seemore"> <div class="workinfo">
     <div class="postercontainer"><img class="poster" src="media/dummy/images (1).jpg" width="300" height="450" alt=""/> </div>
     <div class="infowrapper">
       <h1 class="title">Mad Max</h1>
       <p class="bodyinfo"></p>
     </div>
-  </div>
+  </div></a>
 </template>
 	
 		<script type="text/javascript" src="javascript.js"></script>

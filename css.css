@@ -4,7 +4,54 @@ body{
 	padding: 0;
 	margin: 0;
 }
-nav{}
+#navbar {
+    background-color: rgba(255, 255, 255, 0.5);
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    transition: top 0.6s;
+    height: 10vh;
+}
+
+#logo {
+    display: flex;
+    float: left;
+    padding-left: 8vw;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    align-content: center;
+}
+
+#logo img {
+    width: 70%;
+}
+
+nav {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding-right: 8vw;
+    float: right;
+}
+
+nav a {
+    color: var(--black);
+    text-decoration: none;
+    font-size: 1vw;
+    padding-left: 4vw;
+    font-family: 'Lato', sans-serif;
+    font-weight: lighter;
+    text-transform: uppercase;
+}
+
+#navbar a:hover {
+    color: var(--green);
+}
+
 
 .featured{
 	width: 100vw;
@@ -92,3 +139,89 @@ nav{}
 	height: auto;
 	grid-template-columns: auto auto auto;
 	padding-top:5vh;}
+
+/* store carousel */
+.storefeatured{
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	grid-template-rows: auto auto;
+	grid-row-gap: 50vh;
+	position: relative;
+
+	
+}
+
+.storecarousel-track-container{
+	position: absolute;
+	display: grid;
+	grid-template-rows: 100vh;
+	width: 100vw;
+	height: 80vh;
+	grid-row: 1;
+	overflow: hidden;
+}
+.storecarousel_track{
+	display: flex;
+	flex-flow: row;
+	height: 100%;
+	position: relative;
+	transition: transform 250ms ease-in;
+
+}
+.storecarousel-slide{
+	position: relative;
+	display: flex;
+	width: 50vw;
+	flex-flow: column;
+	align-content: center;
+}
+.storecarousel-slide img{
+	width: 41vw;
+	position: relative;
+	height: auto;
+	top: 50%;
+	transform: translateY(-50%);
+	margin-right: 4.5vw;
+	margin-left: 4.5vw;
+}
+.storecaroselnav{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	grid-row: 2;
+	padding-top: 5vh;
+	
+}
+.storecaroselnavbutton{
+	border-radius: 50%;
+	height: 1vw;
+	width: 1vw;
+	background-color: black;
+	margin-right: 1vw;
+	margin-left: 1vw;
+	border-style: none;
+	
+}
+.storecarousel_button{
+	width: 3vw;
+	position: absolute;
+	height: auto;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: transparent;
+	border-style: none;
+	cursor: pointer;}
+
+.storecarousel_button--left{
+	left: 2em;
+	z-index: 100;
+}
+.storecarousel_button--right{
+	right: 2em;
+	z-index: 100;
+}
+
+.hidden{
+	display: none;
+}

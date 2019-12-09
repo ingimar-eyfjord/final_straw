@@ -6,6 +6,43 @@
 	<link rel="stylesheet" href="css.css">
 </head>
 <body>
-		<script type="text/javascript" src="javascript.js"></script>
+	<header id="navbar">
+
+    <a id="logo" href="index.html">
+        <img src="graphics/esben-logo.png" alt="Esben Klemann">
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="work.html">Work</a>
+        <a href="#">About</a>
+        <a href="store.html">Store</a>
+        <a href="exhibitions.html">Exhibitions</a>
+    </nav>
+</header>
+	
+	<section class="storefeatured">
+  <button class="storecarousel_button storecarousel_button--left"><img src="graphics/previous.svg" alt=""/>
+	</button>
+	
+	<div class="storecarousel-track-container">
+	<div class="storecarousel_track">
+		
+		
+		</div>
+	</div>
+	
+	<button class="storecarousel_button storecarousel_button--right"><img src="graphics/next.svg" alt=""/></button>
+		<div class="storecaroselnav hidden"></div>
+</section>
+	
+		<template class="storefeaturedtemplate">
+		
+		<div class="storecarousel-slide"><img class="featuredimage" src="media/dummy/images (1).jpg" width="300" height="450" alt=""/> </div>
+		
+		<button class="storecaroselnavbutton"></button>
+		
+	</template>
+		<script type="text/javascript" src="store.js"></script>
 </body>
 </html>
