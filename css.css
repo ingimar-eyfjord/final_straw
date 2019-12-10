@@ -129,6 +129,7 @@ nav a {
 	width: 33vw;
 	flex-flow: column;
 	align-content: center;
+
 }
 .carousel-slide img{
 	width: 24vw;
@@ -138,6 +139,7 @@ nav a {
 	transform: translateY(-50%);
 	margin-right: 4.5vw;
 	margin-left: 4.5vw;
+	cursor: pointer;
 }
 .caroselnav{
 	display: flex;
@@ -256,6 +258,7 @@ animation-name: angry-animation;
 	transform: translateY(-50%);
 	margin-right: 4.5vw;
 	margin-left: 4.5vw;
+	cursor:pointer;
 }
 .storecaroselnav{
 	display: flex;
@@ -467,4 +470,8 @@ object-fit: cover;}
     height: 70vh;
     padding: 10vh 8vw;
     text-align: center;
+}
+
+.price{
+	white-space: nowrap;
 }

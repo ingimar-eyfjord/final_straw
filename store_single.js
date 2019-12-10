@@ -18,7 +18,8 @@ function showPost(post) {
 	img.setAttribute("alt", "Poster of the movie " + post.title.rendered);
 	const bodyinfo = postCopy.querySelector(".bodyinfo");
 	bodyinfo.innerHTML = post.content.rendered;
-	
+	const price = postCopy.querySelector(".price");
+	price.innerHTML = `<p>${post.price}&nbsp;DKK`;
 	var url_string = (window.location.href).toLowerCase();
 	var url = new URL(url_string);
 	var id = url.searchParams.get("id");
