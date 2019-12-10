@@ -1,116 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="Description" content="Esben Klemann's work site that displays his the art instilations and ceramic pieces">
-	<meta name="robots" content="noindex, nofollow">
+    <meta name="Description" content="Esben Klemann's work site that displays his the art instilations and ceramic pieces">
+    <meta name="robots" content="noindex, nofollow">
     <title>Work</title>
     <link rel="stylesheet" href="css.css">
 
 </head>
+
 <body>
-	<header id="navbar">
+    <header id="navbar">
 
-    <a id="logo" href="index.html">
-        <img src="graphics/esben-logo.png" alt="Esben Klemann">
-    </a>
+        <a id="logo" href="index.html">
+            <img src="graphics/esben-logo.png" alt="Esben Klemann">
+        </a>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="work.html">Work</a>
-        <a href="#">About</a>
-        <a href="store.html">Store</a>
-        <a href="exhibitions.html">Exhibitions</a>
-    </nav>
-</header>
-	
-<!-- the featured section is for the featured content, here the featured elements will append, and the styling needs to be different from the work section -->
-<section class="featured">
-  <button class="carousel_button carousel_button--left"><img src="graphics/previous.svg" alt=""/>
-	</button>
-	
-	<div class="carousel-track-container">
-	<div class="carousel_track">
-		
-		
-		</div>
-	</div>
-	
-	<button class="carousel_button carousel_button--right"><img src="graphics/next.svg" alt=""/></button>
-		<div class="caroselnav hidden"></div>
-	<img class="scrollarrow" onClick="scrolldown()" src="graphics/scroll.svg" alt=""/> 
-</section>
-	
-	<section class="mediumnav">
-	
-	</section>
-	
-	<!-- the work section holds all the work, here we need a grid and flex system to align all the elements, and then click for more loads. -->
-	<section id="work"> </section>
-	
-	
-	<!-- Template Section -->
-	
-	<template class="featuredtemplate">
-		<a class="carousel-slide"><img class="featuredimage" src="media/dummy/images (1).jpg" width="300" height="450" alt=""/> </a>
-		
-		<button class="caroselnavbutton"></button>
-	</template>
-	
-	
-	<template class="template">
- <a class="seemore"> <div class="workinfo">
-    <div class="postercontainer"><img class="poster" src="media/dummy/images (1).jpg" width="300" height="450" alt=""/> </div>
-    <div class="infowrapper">
-      <h1 class="title">Mad Max</h1>
-		<p class="dimentions"></p>
-		<p class="workyearmade"></p>
-	
-      <p class="bodyinfo"></p>
-    </div>
-  </div></a>
-</template>
-	
-	<template class="mediumnactemplate">
-	<h2 class="mediumselect">
-		
-		</h2>
-		
-	</template>
-	
-	<footer class="footer-content">
+        <nav>
+            <a class="nav-a" href="index.html">Home</a>
+            <a href="#" class="nav-active">Work</a>
+            <a class="nav-a" href="about.html">About</a>
+            <a class="nav-a" href="store.html">Store</a>
+            <a class="nav-a" href="exhibitions.html">Exhibitions</a>
+        </nav>
+    </header>
 
-<ul class="footer-logo">
-  <li><a href="index.html">
-        <img src="graphics/esben-logo_white.svg" alt="Esben Klemann">
-    </a></li>  
-</ul>
+    <!-- the featured section is for the featured content, here the featured elements will append, and the styling needs to be different from the work section -->
+    <section class="featured">
+        <button class="carousel_button carousel_button--left"><img src="graphics/previous.svg" alt="" />
+        </button>
 
-    <ul class="footer-contact">
-        <li>Contact</li>
-        <li><span>Email: esben.klemann@gmail.com</span></li>
-        <li><span>Tel.: +45 72 946 90 80</span></li>
-    </ul>
+        <div class="carousel-track-container">
+            <div class="carousel_track">
 
-    <ul class="footer-links">
-        <li><a href="work.html">Work</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="store.html">Store</a></li>
-        <li><a href="exhibitions.html">Exhibitions</a></li>
-    </ul>
 
-    <ul class="footer-some">
-        <li><a href="https://www.instagram.com/esbenklemann/">Instagram</a></li>
-        <li><a href="https://www.twitter.com">Twitter</a></li>
-        <li><a href="https://www.vimeo.com">Vimeo</a></li>
-    </ul>
+            </div>
+        </div>
 
-</footer>
-	
-		<script type="text/javascript" src="javascript.js"></script>
-	<script type="text/javascript" src="carousel.js"></script>
+        <button class="carousel_button carousel_button--right"><img src="graphics/next.svg" alt="" /></button>
+        <div class="caroselnav hidden"></div>
+        <img class="scrollarrow" onClick="scrolldown()" src="graphics/scroll.svg" alt="" />
+    </section>
+
+    <section class="mediumnav">
+
+    </section>
+
+    <!-- the work section holds all the work, here we need a grid and flex system to align all the elements, and then click for more loads. -->
+    <section id="work"> </section>
+
+
+    <!-- Template Section -->
+
+    <template class="featuredtemplate">
+        <a class="carousel-slide"><img class="featuredimage" src="media/dummy/images (1).jpg" width="300" height="450" alt="" /> </a>
+
+        <button class="caroselnavbutton"></button>
+    </template>
+
+
+    <template class="template">
+        <a class="seemore">
+            <div class="workinfo">
+                <div class="postercontainer"><img class="poster" src="media/dummy/images (1).jpg" width="300" height="450" alt="" /> </div>
+                <div class="infowrapper">
+                    <h1 class="title">Mad Max</h1>
+                    <p class="dimentions"></p>
+                    <p class="workyearmade"></p>
+
+                    <p class="bodyinfo"></p>
+                </div>
+            </div>
+        </a>
+    </template>
+
+    <template class="mediumnactemplate">
+        <h2 class="mediumselect">
+
+        </h2>
+
+    </template>
+
+    <footer class="footer-content">
+
+        <ul class="footer-logo">
+            <li><a href="index.html">
+                    <img src="graphics/esben-logo_white.svg" alt="Esben Klemann">
+                </a></li>
+        </ul>
+
+        <ul class="footer-contact">
+            <li>Contact</li>
+            <li><span>Email: esben.klemann@gmail.com</span></li>
+            <li><span>Tel.: +45 72 946 90 80</span></li>
+        </ul>
+
+        <ul class="footer-links">
+            <li><a href="work.html">Work</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="store.html">Store</a></li>
+            <li><a href="exhibitions.html">Exhibitions</a></li>
+        </ul>
+
+        <ul class="footer-some">
+            <li><a href="https://www.instagram.com/esbenklemann/">Instagram</a></li>
+            <li><a href="https://www.twitter.com">Twitter</a></li>
+            <li><a href="https://www.vimeo.com">Vimeo</a></li>
+        </ul>
+
+    </footer>
+
+    <script type="text/javascript" src="javascript.js"></script>
+    <script type="text/javascript" src="carousel.js"></script>
 
 </body>
 </html>
