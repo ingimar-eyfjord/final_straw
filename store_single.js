@@ -1,7 +1,7 @@
 // JavaScript Document
 window.addEventListener("DOMContentLoaded", getData);
 function getData() {
-	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/work?_embed").then(res => res.json()).then(handleData)
+	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/store?_embed").then(res => res.json()).then(handleData)
 }
 function handleData(myData) {
 	myData.forEach(showPost)
@@ -16,7 +16,7 @@ function showPost(post) {
 	const img = postCopy.querySelector("img");
 	img.setAttribute("src", imgPath)
 	img.setAttribute("alt", "Poster of the movie " + post.title.rendered);
-	const bodyinfo = postCopy.querySelector(".Woroksinglebodyinfo");
+	const bodyinfo = postCopy.querySelector(".bodyinfo");
 	bodyinfo.innerHTML = post.content.rendered;
 	
 	var url_string = (window.location.href).toLowerCase();
@@ -24,7 +24,7 @@ function showPost(post) {
 	var id = url.searchParams.get("id");
 
 	function appendWork() {
-		if (post.id == id) document.querySelector("#workSingle").appendChild(postCopy);
+		if (post.id == id) document.querySelector("#work").appendChild(postCopy);
 	}
 	appendWork()
 }

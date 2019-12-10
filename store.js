@@ -1,9 +1,44 @@
 // JavaScript Document
-
+window.addEventListener("DOMContentLoaded", getData);
 window.addEventListener("DOMContentLoaded", getfetured);
+window.addEventListener("DOMContentLoaded", getmedium);
+function getData() {
+	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/store?_embed").then(res => res.json()).then(handleData)
+}
+function handleData(myData) {
+	myData.forEach(showPost)
+}
+function showPost(post) {
+	const template = document.querySelector(".template").content;
+	const postCopy = template.cloneNode(true);
+	
+	const h1 = postCopy.querySelector("h1");
+	h1.textContent = post.title.rendered;
+	const imgPath = post.cover.guid;
+	const img = postCopy.querySelector("img");
+	img.setAttribute("src", imgPath)
+	img.setAttribute("alt", "Poster of the movie " + post.title.rendered);
+	const bodyinfo = postCopy.querySelector(".bodyinfo");
+	bodyinfo.innerHTML = post.content.rendered;
+	
+	post.medium.forEach(e =>{
+	const infowrapper = postCopy.querySelector(".seemore");
+	const classadd = e.post_title;
+	
+	infowrapper.classList.add(`${classadd}`);
+//		console.log(classadd);console.log(infowrapper);
+//	infowrapper.classList.add("$[post.medium.title.rendered]");
+		console.log(infowrapper);
+	infowrapper.setAttribute("value", classadd)
+	})
+	
+	var a = postCopy.querySelector(".seemore");
+	a.href = `store_single.html?id=${post.id}`;
+	
+ document.querySelector("#store").appendChild(postCopy)}
 
 function getfetured() {
-	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/work?_embed").then(res => res.json()).then(featuredyes).then(() => {
+	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/store?_embed").then(res => res.json()).then(featuredyes).then(() => {
 	
 	const track = document.querySelector(".storecarousel_track");
 	const slides = Array.from(track.children);
@@ -46,7 +81,6 @@ function getfetured() {
 			track.style.transform += "translateX(-50vw)";
 			currentSlide.classList.remove("currentSlide");
 			NextSlide.classList.add("currentSlide");
-//			document.querySelector(".carousel_button--right").style.display = "block";
 		removeprevbutton()
 	})
 	
@@ -80,10 +114,8 @@ function showfeatured(featuredata){
 	img.setAttribute("src", imgPath)
 	img.setAttribute("alt", "Poster of the movie " + featuredata.title.rendered);
 	
-//	const h1 = postCopy.querySelector("h1");
-//	h1.textContent = featuredata.title.rendered;
-
-//	console.log(featuredata.querySelector(".carousel-slide").classList.contains("lastslide"));
+		var a = postCopy.querySelector(".storecarousel-slide");
+		a.href = `store_single.html?id=${featuredata.id}`;
 	
 	function appendcarnav(){
 		if (featuredata.featured == 1){
@@ -96,4 +128,66 @@ function showfeatured(featuredata){
 	{document.querySelector(".storecarousel_track").appendChild(postCopy);
 	}}
 	appendfeatured()
+}
+
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-10vh";
+  }
+  prevScrollpos = currentScrollPos;
+}
+
+function getmedium() {
+	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/medium?_embed").then(res => res.json()).then(handlemediumData)
+}
+function handlemediumData(myData) {
+	myData.forEach(showmediumPost)
+}
+
+function showmediumPost(post) {
+	const template = document.querySelector(".mediumnactemplate").content;
+	const postCopy = template.cloneNode(true);
+	const h2 = postCopy.querySelector("h2");
+	h2.textContent = post.title.rendered;
+	
+	h2.addEventListener("click", e =>{
+	const returnname = h2.innerHTML;
+	const infowrapper = document.querySelectorAll(".seemore");
+	const slice = Array.from(infowrapper);
+		
+		slice.forEach(e => {
+			
+			const classis = Array.from(e.classList);
+			const classesare = Array.from(classis);
+			
+				classesare.forEach(t =>{
+					e.style.display = "none";
+					console.log(t == returnname);
+				if (t == returnname) {
+					console.log("object");
+				e.style.display = "block";
+				}
+					
+//					t != returnname.style.display = "none";
+		})
+			
+			
+				})
+		
+		
+//		console.log(infowrapper.classList.contains);
+//		if (document.querySelectorAll(".seemore").classList.contains == returnname) {
+//			infowrapper.style.display = "none";   
+//  }
+		
+	})
+	
+ document.querySelector(".mediumnav").appendChild(postCopy)}
+
+function scrolldown(){
+window.scrollTo(0,1200,document.body.scrollHeight);
 }
