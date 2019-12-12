@@ -20,15 +20,21 @@ function showPost(post) {
 	const img = postCopy.querySelector("img");
 	img.setAttribute("src", imgPath)
 	img.setAttribute("alt", "Poster of the movie " + post.title.rendered);
-
-
+//	const bodyinfo = postCopy.querySelector(".bodyinfo");
+//	bodyinfo.innerHTML = post.content.rendered;
+	
+//	console.log(post.medium[0].post_title);
 	post.medium.forEach(e =>{
 	const infowrapper = postCopy.querySelector(".seemore");
 	const classadd = e.post_title;
 	
 	infowrapper.classList.add(`${classadd}`);
+//		console.log(classadd);console.log(infowrapper);
+//	infowrapper.classList.add("$[post.medium.title.rendered]");
+		console.log(infowrapper);
 	infowrapper.setAttribute("value", classadd)
 	})
+	
 	
 	const yearmade = postCopy.querySelector(".workyearmade");
 	yearmade.textContent = post.year_made;
@@ -116,11 +122,8 @@ function showfeatured(featuredata){
 	const imgPath = featuredata.cover.guid;
 	const img = postCopy.querySelector("img");
 	
-	
-		postCopy.querySelector(".carousel-slide img").addEventListener("click", m =>{
-			window.location.href = `work_single.html?id=${featuredata.id}`;
-		});
-		
+		var a = postCopy.querySelector(".carousel-slide");
+		a.href = `work_single.html?id=${featuredata.id}`;
 
 	
 	img.setAttribute("src", imgPath)
@@ -203,5 +206,5 @@ function showmediumPost(post) {
  document.querySelector(".mediumnav").appendChild(postCopy)}
 
 function scrolldown(){
-window.scrollTo(0,1000,document.body.scrollHeight);
+window.scrollTo(0,1200,document.body.scrollHeight);
 }
