@@ -18,12 +18,15 @@ function showPost(post) {
 	const img = postCopy.querySelector("img");
 	img.setAttribute("src", imgPath)
 	img.setAttribute("alt", "Poster of the movie " + post.title.rendered);
-	const bodyinfo = postCopy.querySelector(".bodyinfo");
-	bodyinfo.innerHTML = post.content.rendered;
+
 	
 	post.medium.forEach(e =>{
 	const infowrapper = postCopy.querySelector(".seemore");
 	const classadd = e.post_title;
+	const price = postCopy.querySelector(".price");
+	price.innerHTML = `<p>${Math.trunc(post.price)}&nbsp;DKK</p>`;
+	const dimensions = postCopy.querySelector(".dimentions");
+	dimensions.textContent = post.dimensions;
 	
 	infowrapper.classList.add(`${classadd}`);
 //		console.log(classadd);console.log(infowrapper);
@@ -114,8 +117,9 @@ function showfeatured(featuredata){
 	img.setAttribute("src", imgPath)
 	img.setAttribute("alt", "Poster of the movie " + featuredata.title.rendered);
 	
-		var a = postCopy.querySelector(".storecarousel-slide");
-		a.href = `store_single.html?id=${featuredata.id}`;
+		postCopy.querySelector(".storecarousel-slide img").addEventListener("click", e =>{
+			window.location.href = `store_single.html?id=${featuredata.id}`;
+	})
 	
 	function appendcarnav(){
 		if (featuredata.featured == 1){
@@ -189,5 +193,5 @@ function showmediumPost(post) {
  document.querySelector(".mediumnav").appendChild(postCopy)}
 
 function scrolldown(){
-window.scrollTo(0,1200,document.body.scrollHeight);
+window.scrollTo(0,1000,document.body.scrollHeight);
 }

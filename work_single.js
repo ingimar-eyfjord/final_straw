@@ -10,8 +10,8 @@ function showPost(post) {
 	const template = document.querySelector(".template").content;
 	const postCopy = template.cloneNode(true);
 	
-	const h1 = postCopy.querySelector("h1");
-	h1.textContent = post.title.rendered;
+	const h2 = postCopy.querySelector("h2");
+	h2.textContent = post.title.rendered;
 	const imgPath = post.cover.guid;
 	const img = postCopy.querySelector("img");
 	img.setAttribute("src", imgPath)

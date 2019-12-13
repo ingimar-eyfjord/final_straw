@@ -56,7 +56,7 @@ function showInformation(info) {
     bodyinfo.innerHTML = info.content.rendered;
 
     const priceInfo = infoCopy.querySelector(".price");
-    priceInfo.innerHTML = info.price;
+    priceInfo.innerHTML = `<p>${Math.trunc(info.price)}&nbsp; DKK</p>`;
 
     var url_string = (window.location.href).toLowerCase();
     var url = new URL(url_string);

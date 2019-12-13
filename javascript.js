@@ -122,8 +122,10 @@ function showfeatured(featuredata){
 	const imgPath = featuredata.cover.guid;
 	const img = postCopy.querySelector("img");
 	
-		var a = postCopy.querySelector(".carousel-slide");
-		a.href = `work_single.html?id=${featuredata.id}`;
+	postCopy.querySelector(".carousel-slide img").addEventListener("click", e =>{
+			window.location.href = `work_single.html?id=${featuredata.id}`;
+	})
+	
 
 	
 	img.setAttribute("src", imgPath)
@@ -206,5 +208,5 @@ function showmediumPost(post) {
  document.querySelector(".mediumnav").appendChild(postCopy)}
 
 function scrolldown(){
-window.scrollTo(0,1200,document.body.scrollHeight);
+window.scrollTo(0,1000,document.body.scrollHeight);
 }

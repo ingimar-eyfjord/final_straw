@@ -164,6 +164,7 @@ nav {
     transform: translateY(-50%);
     margin-right: 4.5vw;
     margin-left: 4.5vw;
+	cursor: pointer;
 }
 
 .caroselnav {
@@ -294,6 +295,7 @@ nav {
     transform: translateY(-50%);
     margin-right: 4.5vw;
     margin-left: 4.5vw;
+	cursor: pointer;
 }
 
 .storecaroselnav {
@@ -372,9 +374,11 @@ p.bodyinfo {
 }
 */
 
+/*
 #store p{
     display: none;
 }
+*/
 
 
 /*-----STORE SINGLE PAGE STYLE-----*/
@@ -390,7 +394,8 @@ p.bodyinfo {
 }
 
 .store-single-img {
-    grid-column: 1/2;
+    grid-column: 1;
+	grid-row: 1;
     width: 43.5vw;
     height: 38vw;
     object-fit: cover;
@@ -399,6 +404,8 @@ p.bodyinfo {
 .storesingle-infowrapper {
     grid-column: 2/3;
 /*    height: 50vw;*/
+	width: 43.5vw;
+    height: 38vw;
     background-color: var(--black);
 }
 
@@ -409,6 +416,7 @@ p.bodyinfo {
     margin: 0;
     padding-left: 5vw;
     padding-top: 5vw;
+	
 }
 
 .storesingle-infowrapper p.dimentions {
@@ -442,11 +450,11 @@ p.bodyinfo {
     text-transform: none;
 }
 
-.arrow {
+#arrow {
     display: flex;
-
+	flex-direction: row;
+	flex-wrap: nowrap;
     width: 100vw;
-
     justify-content: center;
     margin: 1.5vw 0;
 }
@@ -461,6 +469,7 @@ p.bodyinfo {
     font-size: 1vw;
     margin: 0;
     padding: 0;
+	padding-left: 1vw;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
     text-transform: uppercase;
@@ -493,7 +502,13 @@ img.poster{
 a.seemore {
 
 }
-
+p.price{
+   font-size: 1vw;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    text-align: left;
+    padding-left: 2vw;	
+}
 h1.title {
     font-size: 1vw;
     font-family: 'Montserrat', sans-serif;
