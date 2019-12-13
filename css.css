@@ -707,7 +707,7 @@ li {
 
 .home-second-section {
     box-sizing: border-box;
-    height: 100vh;
+    height: 70vh;
     width: 100vw;
     margin: auto;
     background-color: var(--green);
@@ -735,7 +735,7 @@ li {
 }
 
 .home-third-section {
-    height: 70vh;
+    height: 85vh;
     padding: 10vh 8vw;
     text-align: center;
 }
@@ -743,14 +743,14 @@ li {
 /* -------- BUTTONS STYLE -------- */
 
 .read-more-btn {
-    width: 20%;
+    width: 10vw;
 }
 
 
 .read-more-btn:hover {
     opacity: 1;
     content: url(graphics/buttons/Read-more-hovered.svg);
-    width: 20%;
+    width: 10vw;
     animation-name: btnhover;
     animation-timing-function: ease-in;
     animation-duration: 1s;
@@ -781,15 +781,7 @@ li {
     animation-duration: .3s;
 }
 
-@keyframes btnhover {
-    from {
-        opacity: 0.75;
-    }
 
-    to {
-        opacity: 1;
-    }
-}
 .indexworkinfo img{
 	width: 20vw;
     height: 20vw;
@@ -809,4 +801,24 @@ li {
 }
 .indexcarousel_track div{
 	
+}
+.indexseemore{
+  width: 10vw;
+	padding: 2vw 0 0 5vw;}
+.indexseemore:hover{
+    opacity: 1;
+    content: url("graphics/buttons/See-more-hovered.svg");
+    width: 10vw;
+    animation-name: btnhover;
+    animation-timing-function: ease-in;
+    animation-duration: 1s;
+}
+@keyframes btnhover {
+    from {
+        opacity: 0.75;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
