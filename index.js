@@ -41,4 +41,12 @@ function showPost(post) {
 	var a = postCopy.querySelector(".seemore");
 	a.href = `work_single.html?id=${post.id}`;
 	
- document.querySelector("#work").appendChild(postCopy)})}
+ document.querySelector("#work").appendChild(postCopy)})};
+
+document.querySelector(".indexseemore").addEventListener("click", e=>{
+	window.location.href = `work.html`;
+})
+
+
+
+
