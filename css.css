@@ -790,7 +790,17 @@ li {
         opacity: 1;
     }
 }
-
+.indexworkinfo img{
+	width: 20vw;
+    height: 20vw;
+    object-fit: cover;
+    padding-right: 2vw;
+    padding-left: 2vw;
+}
+.indexworkinfo{
+	text-align: left;
+}
+}
 .indexcarousel_track{
 	display: flex;
     flex-flow: row;
