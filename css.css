@@ -139,6 +139,27 @@ nav {
     overflow: hidden;
 }
 
+.featured--worksingle {
+    width: 100vw;
+    height: 50vh;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-row-gap: 50vh;
+    position: relative;
+
+
+}
+.carousel-track-container--worksingle {
+    position: absolute;
+    display: grid;
+    grid-template-rows: 50vh;
+    width: 100vw;
+    height: 50vh;
+    grid-row: 1;
+    overflow: hidden;
+	padding-bottom: 5vh;
+}
+
 .carousel_track {
     display: flex;
     flex-flow: row;
@@ -151,20 +172,25 @@ nav {
 .carousel-slide {
     position: relative;
     display: flex;
-    width: 33vw;
+    width: 50vw;
     flex-flow: column;
     align-content: center;
 }
 
 .carousel-slide img {
-    width: 24vw;
+	width: 33vw;
     position: relative;
     height: auto;
     top: 50%;
     transform: translateY(-50%);
-    margin-right: 4.5vw;
-    margin-left: 4.5vw;
+    margin-right: 8.5vw;
+    margin-left: 8.5vw;
 	cursor: pointer;
+}
+.featuredimage_work{
+	width: 33vw !important;
+	height: 19vw !important;
+	object-fit: cover !important;
 }
 
 .caroselnav {
@@ -221,33 +247,44 @@ nav {
 */
 
 .scrollarrow {
-    width: 5vw;
+    width: 3.5vw;
     height: auto;
     justify-self: center;
     grid-row: 3;
     animation-name: angry-animation;
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-timing-function: ease-in;
     animation-delay: 0s;
     animation-iteration-count: infinite;
     animation-direction: normal;
     cursor: pointer;
+    transform: translate(-50%, 0%) rotate(45deg);
 }
+
 
 @keyframes angry-animation {
     0% {
-        -webkit-transform: translateY(-15vh);
-        transform: translateY(-15vh);
+        -webkit-transform: translateY(-10vh);
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.5;
     }
 
     50% {
-        -webkit-transform: translateY(-10vh);
-        transform: translateY(-10vh);
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0.5;
     }
 
     100% {
-        -webkit-transform: translateY(-15vh);
-        transform: translateY(-15vh);
+        -webkit-transform: translateY(-5vh);
+        transform: translateY(-5vh);
+        opacity: 0;
     }
 }
 
@@ -288,13 +325,13 @@ nav {
 }
 
 .storecarousel-slide img {
-    width: 41vw;
+    width: 33vw;
     position: relative;
     height: auto;
     top: 50%;
     transform: translateY(-50%);
-    margin-right: 4.5vw;
-    margin-left: 4.5vw;
+    margin-right: 8.5vw;
+    margin-left: 8.5vw;
 	cursor: pointer;
 }
 
@@ -361,9 +398,11 @@ nav {
     display: grid;
     height: auto;
     grid-template-columns: 1fr 1fr 1fr;
+	grid-row-gap: 2em;
     padding-top: 5vh;
     padding-left: 6.5vw;
     padding-right: 6.5vw;
+	padding-bottom: 7em;
 }
 /*
 p.bodyinfo {
@@ -486,9 +525,11 @@ p.bodyinfo {
     display: grid;
     height: auto;
     grid-template-columns: 1fr 1fr 1fr;
+	grid-row-gap: 2em;
     padding-top: 5vh;
     padding-left: 6.5vw;
     padding-right: 6.5vw;
+	padding-bottom: 7em;
 }
 
 img.poster{
@@ -551,13 +592,14 @@ h2 {
 
 /*work single product */
 
+
 #workSingle {
     display: grid;
-    grid-template-columns: 50vw 50vw;
-    grid-template-rows: 100vh 50vh 50vh;
-    justify-content: center;
-    /*	align-items: baseline;*/
-    text-align: left;
+grid-template-columns: 50vw 50vw;
+grid-template-rows: 100vh auto;
+justify-content: center;
+text-align: left;
+padding-bottom: 3.5vw;
 }
 
 .worksingletitle {
@@ -619,6 +661,34 @@ h2 {
     font-weight: 700;
 }
 
+.worksingletitle {
+     color: var(--black);
+    text-decoration: none;
+    font-size: 3vw;
+    margin: 0;
+    padding-top: 6vw;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+h2.worksingle-year,.worksingle-location  {
+        font-size: 1.3vw;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+p.Woroksinglebodyinfo {
+    color: var(--black);
+    text-decoration: none;
+    font-size: 1.3vw;
+    margin: 0;
+    padding: 5vw 6.5vw 0 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    text-transform: none;
+}
+
 
 
 
@@ -629,6 +699,7 @@ h2 {
     background-color: var(--black);
     color: var(--white);
     height: 30vh;
+		font-weight: 300;
 }
 
 .footer-content a,
@@ -637,19 +708,21 @@ li {
     color: var(--white);
     font-family: 'Lato', sans-serif;
     font-size: 1vw;
-    font-weight: 200;
     text-transform: uppercase;
     align-self: center;
     padding: 1vh 0;
+		font-weight: 300;
 }
 
 .footer-content a:visited {
     text-decoration: none;
     color: var(--white);
+		font-weight: 300;
 }
 
 .footer-content a:hover {
     color: var(--green);
+		font-weight: 300;
 }
 
 .footer-logo {
@@ -666,22 +739,26 @@ li {
     list-style: none;
     grid-column: 3/4;
     padding: 3vh 1vw 0 0;
+		font-weight: 300;
 }
 
 .footer-contact {
     list-style: none;
     grid-column: 2/3;
     padding: 3vh 1vw 0 0;
+		font-weight: 300;
 }
 
 .footer-contact span {
     text-transform: none;
+		font-weight: 300;
 }
 
 .footer-some {
     list-style: none;
     grid-column: 4/5;
     padding: 3vh 8vw 0 0;
+	font-weight: 300;
 }
 
 
@@ -744,6 +821,16 @@ transform: translateX(50%);}
     padding: 10vh 8vw;
     text-align: center;
 }
+.fixthis {
+    color: var(--black);
+    font-size: 1.3vw;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    padding: 2.5vw 0;
+    line-height: 1.5;
+    text-align: center;
+    text-transform: uppercase;
+}
 
 /* -------- BUTTONS STYLE -------- */
 
@@ -780,6 +867,7 @@ transform: translateX(50%);}
 .buy-btn {
     width: 25%;
     padding: 2vw 0 0 5vw;
+	transform: translateY(-2vw);
 }
 
 
@@ -818,7 +906,7 @@ transform: translateX(50%);}
 	cursor: pointer;
   width: 10vw;
 	right: 50%;
-	transform: translate(50%, 50%);}
+	transform: translate(50%, -20%);}
 
 .indexseemore:hover{
 
@@ -841,4 +929,139 @@ transform: translateX(50%);}
     to {
         opacity: 1;
     }
+}
+.about-first-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+#about-text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-sizing: border-box;
+    background-color: var(--white);
+    align-content: center;
+    padding: 10vh 6.5vw;
+    height: 100vh;
+    width: 100vw;
+
+}
+
+#about-text p {
+    color: var(--black);
+    font-size: 1.3vw;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    padding: 0 0 0 0;
+    margin: 0;
+    line-height: 1.5;
+    text-align: left;
+    text-transform: none;
+}
+
+#about-text p:nth-child(2) {
+    padding-left: 5vw;
+}
+
+.about-second-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    padding: 10vh 6.5vw;
+    margin: 0;
+    background-color: var(--brown);
+    overflow-x: hidden;
+}
+
+
+.about-second-section h2 {
+    color: var(--white);
+    font-size: 1.3vw;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    padding: 2.5vw 0;
+    line-height: 1.5;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.about-second-section li {
+    text-decoration: none;
+    list-style: none;
+    color: var(--white);
+    font-family: 'Lato', sans-serif;
+    font-size: 1vw;
+    font-weight: 500;
+    text-transform: none;
+    align-self: left;
+    padding: 1vw 0;
+    margin: 0;
+}
+.about-second-section a {
+    text-decoration: none;
+    list-style: none;
+    color: var(--white);
+    font-family: 'Lato', sans-serif;
+    font-size: 1vw;
+    font-weight: 500;
+    text-transform: none;
+    align-self: left;
+    padding: 1vw 0;
+    margin: 0;
+}
+/*
+#logo{
+	padding: 0;
+}
+*/
+#agents a:nth-child(1) {
+    color: var(--white);
+}
+
+#contact a {
+    color: var(--white);
+}
+
+#agent1{
+	width: 50%;
+	float: left;
+
+}
+#agent2{
+	width: 50%;
+	float:right;
+}
+.about-second-section h3{
+	 font-size: 1.5vw;
+	    font-weight: 500;
+	 color: var(--white);
+}
+.about-second-section p {
+    font-size: 1.3vw;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--white);
+    font-weight: 300;
+    padding-right: 10vw;
+    line-height: 1.5;
+    text-align: left;
+    text-transform: none;
+    padding: 0;
+	height: 5em;
+}
+
+.about-second-section ul {
+    margin: 0vw;
+    padding: 0;
+}
+#esben{
+padding-top: 0.01vw;
 }

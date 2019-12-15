@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", getmedium);
 
 
 function getData() {
-	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/work?_embed").then(res => res.json()).then(handleData)
+	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/work?per_page=100").then(res => res.json()).then(handleData)
 }
 function handleData(myData) {
 	myData.forEach(showPost)
@@ -49,11 +49,11 @@ function showPost(post) {
 function getfetured(post) {
 	const template = document.querySelector(".template").content;
 	const postCopy = template.cloneNode(true);
-	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/work?_embed").then(res => res.json()).then(featuredyes).then(() => {
+	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/work?per_page=100").then(res => res.json()).then(featuredyes).then(() => {
 	
 	const track = document.querySelector(".carousel_track");
 	const slides = Array.from(track.children);
-	const lastslide = slides.length - 4;
+	const lastslide = slides.length - 3;
 		
 		
 	const nextButton = document.querySelector(".carousel_button--right");
@@ -88,7 +88,7 @@ function getfetured(post) {
 					document.querySelector(".carousel_button--right").style.display = "none";
 				}
 			})
-			track.style.transform += "translateX(-33vw)";
+			track.style.transform += "translateX(-50vw)";
 			currentSlide.classList.remove("currentSlide");
 			NextSlide.classList.add("currentSlide");
 //			document.querySelector(".carousel_button--right").style.display = "block";
@@ -101,7 +101,7 @@ function getfetured(post) {
 	const prevSlide = currentSlide.previousElementSibling;
 	const amounttomove = prevSlide.style.transform.slideWidth;
 	
-	track.style.transform += "translateX(33vw)";
+	track.style.transform += "translateX(50vw)";
 	currentSlide.classList.remove("currentSlide");
 	prevSlide.classList.add("currentSlide");
 	document.querySelector(".carousel_button--right").style.display = "block";
@@ -162,7 +162,7 @@ var currentScrollPos = window.pageYOffset;
 
 
 function getmedium() {
-	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/medium?_embed").then(res => res.json()).then(handlemediumData)
+	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/medium?per_page=100").then(res => res.json()).then(handlemediumData)
 }
 function handlemediumData(myData) {
 	myData.forEach(showmediumPost)

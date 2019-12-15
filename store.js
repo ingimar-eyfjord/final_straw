@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", getData);
 window.addEventListener("DOMContentLoaded", getfetured);
 window.addEventListener("DOMContentLoaded", getmedium);
 function getData() {
-	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/store?_embed").then(res => res.json()).then(handleData)
+	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/store?per_page=100").then(res => res.json()).then(handleData)
 }
 function handleData(myData) {
 	myData.forEach(showPost)
@@ -41,10 +41,11 @@ function showPost(post) {
  document.querySelector("#store").appendChild(postCopy)}
 
 function getfetured() {
-	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/store?_embed").then(res => res.json()).then(featuredyes).then(() => {
+	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/store?per_page=100").then(res => res.json()).then(featuredyes).then(() => {
 	
 	const track = document.querySelector(".storecarousel_track");
 	const slides = Array.from(track.children);
+		console.log(slides.length);
 	const lastslide = slides.length - 3;
 		
 		

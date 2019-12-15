@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", getData);
 window.addEventListener("DOMContentLoaded", getInfoData);
 
 function getData() {
-    fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/store?_embed").then(res => res.json()).then(handleData)
+    fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/store?per_page=100").then(res => res.json()).then(handleData)
 }
 
 function handleData(myData) {
@@ -11,7 +11,7 @@ function handleData(myData) {
 }
 
 function getInfoData() {
-    fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/store?_embed").then(res => res.json()).then(handleInfoData)
+    fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/store?per_page=100").then(res => res.json()).then(handleInfoData)
 }
 
 function showImage(image) {
@@ -57,6 +57,10 @@ function showInformation(info) {
 
     const priceInfo = infoCopy.querySelector(".price");
     priceInfo.innerHTML = `<p>${Math.trunc(info.price)}&nbsp; DKK</p>`;
+	
+	infoCopy.querySelector(".mailto").addEventListener("click", e=>{
+		window.location.href = "mailto:username@example.com?subject=Buy%20art%20piece"
+	})
 
     var url_string = (window.location.href).toLowerCase();
     var url = new URL(url_string);

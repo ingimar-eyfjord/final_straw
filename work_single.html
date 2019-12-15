@@ -18,16 +18,33 @@
     </a>
 
     <nav>
+		
         <a class="nav-a" href="index.html">Home</a>
-        <a href="#" class="nav-active">Work</a>
+        <a href="work.html" class="nav-active">Work</a>
         <a class="nav-a" href="about.html">About</a>
         <a class="nav-a" href="store.html">Store</a>
-        <a class="nav-a" href="exhibitions.html">Exhibitions</a>
+
     </nav>
 </header>
 	
 <section id="workSingle"> </section>
-	
+	    <section class="featured--worksingle">
+        <button class="carousel_button carousel_button--left"><img src="graphics/previous.svg" alt="" />
+        </button>
+
+        <div class="carousel-track-container--worksingle">
+         
+        </div>
+
+        <button class="carousel_button carousel_button--right"><img src="graphics/next.svg" alt="" /></button>
+        <div class="caroselnav hidden"></div>
+
+    </section>
+	<template class="featuredtemplate">
+   <div class="carousel_track"> </div>
+
+        <button class="caroselnavbutton hidden"></button>
+    </template>
 	<template class="template">
  <a class="workSingleSeemore"> <div class="workinfo">
     <div class="postercontainer"><img class="singleWorkPoster" src="media/dummy/images (1).jpg" width="300" height="450" alt=""/> </div>
@@ -36,8 +53,8 @@
 	 </a>
 		<div class="workSingleinfowrapper">
       <h2 class="worksingletitle">Mad Max</h2>
-			<h2>Year made</h2>
-			<h2>Location</h2>
+			<h2 class="worksingle-year">Year made</h2>
+			<h2 class="worksingle-location">Location</h2>
      
     </div>
 		<p class="Woroksinglebodyinfo"></p>
