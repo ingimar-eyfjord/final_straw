@@ -176,11 +176,7 @@ function showmediumPost(post) {
 					console.log("object");
 				e.style.display = "block";
 				}
-					
-//					t != returnname.style.display = "none";
 		})
-			
-			
 				})
 		
 		
