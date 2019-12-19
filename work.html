@@ -26,6 +26,26 @@
         
         </nav>
     </header>
+		<!-- Burger -->
+	<header id="burger"> <a id="logo-burger" href="index.html">
+        <img src="graphics/esben-logo.png" alt="Esben Klemann">
+    </a>
+  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+  <label for="openSidebarMenu" class="sidebarIconToggle">
+  <div class="spinner diagonal part-1"></div>
+  <div class="spinner horizontal"></div>
+  <div class="spinner diagonal part-2"></div>
+  </label>
+  <div id="sidebarMenu">
+    <ul class="sidebarMenuInner">
+      <li><a class="nav-a" href="index.html">Home</a></li>
+      <li><a href="work.html" class="nav-active">Work</a></li>
+      <li><a class="nav-a" href="about.html">About</a></li>
+      <li><a class="nav-a" href="store.html">Store</a></li>
+    </ul>
+  </div>
+	</header>
+	<!-- Burger ends -->
 
     <!-- the featured section is for the featured content, here the featured elements will append, and the styling needs to be different from the work section -->
     <section class="featured">
@@ -43,6 +63,20 @@
         <div class="caroselnav hidden"></div>
         <img class="scrollarrow" onClick="scrolldown()" src="graphics/scroll.svg" alt="" />
     </section>
+	<!-- small -->
+	  <section class="featuredsmall">
+        
+
+        <div class="carousel-track-containersmall">
+            <div class="carousel_tracksmall">
+
+
+            </div>
+        </div>
+
+        
+        <div class="caroselnav hidden"></div>
+    </section>
 
     <section class="mediumnav">
 
@@ -53,7 +87,12 @@
 
 
     <!-- Template Section -->
+<template class="featuredtemplatesmall">
+        <div class="carousel-slidesmall"><img class="featuredimage" src="media/dummy/images (1).jpg" width="300" height="450" alt="" /> </div>
 
+        <button class="caroselnavbutton"></button>
+    </template>
+	
     <template class="featuredtemplate">
         <div class="carousel-slide"><img class="featuredimage" src="media/dummy/images (1).jpg" width="300" height="450" alt="" /> </div>
 

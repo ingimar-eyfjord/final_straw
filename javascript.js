@@ -1,6 +1,7 @@
 // JavaScript Document
 window.addEventListener("DOMContentLoaded", getData);
 window.addEventListener("DOMContentLoaded", getfetured);
+window.addEventListener("DOMContentLoaded", getfeturedsmall);
 window.addEventListener("DOMContentLoaded", getmedium);
 
 
@@ -31,7 +32,7 @@ function showPost(post) {
 	infowrapper.classList.add(`${classadd}`);
 //		console.log(classadd);console.log(infowrapper);
 //	infowrapper.classList.add("$[post.medium.title.rendered]");
-		console.log(infowrapper);
+//		console.log(infowrapper);
 	infowrapper.setAttribute("value", classadd)
 	})
 	
@@ -54,53 +55,35 @@ function getfetured(post) {
 	const track = document.querySelector(".carousel_track");
 	const slides = Array.from(track.children);
 	const lastslide = slides.length - 3;
-		
-		
 	const nextButton = document.querySelector(".carousel_button--right");
 	const prevButton = document.querySelector(".carousel_button--left");
-		
 	const dotNav = document.querySelector(".caroselnav");
 	const dots = Array.from(dotNav.children);
 		
 	slides[0].classList.add("currentSlide");
 	slides[lastslide].classList.add("lastSlide");
 	const slideWidth = slides[0].getBoundingClientRect().width;	
-//	console.log(slides);
-		
-		function removeprevbutton(){
-		if (document.querySelector(".carousel-slide").classList.contains("currentSlide")){
-		document.querySelector(".carousel_button--left").style.display = "none";}	}
-		removeprevbutton()
-
+	function removeprevbutton(){
+	if (document.querySelector(".carousel-slide").classList.contains("currentSlide")){
+	document.querySelector(".carousel_button--left").style.display = "none";}	}
+	removeprevbutton()
 	nextButton.addEventListener("click", e =>{
 	const currentSlide = track.querySelector(".currentSlide");
 	const NextSlide = currentSlide.nextElementSibling;
 	const amounttomove = NextSlide.style.transform.slideWidth;
 	const lastSlide = track.querySelector(".lastSlide")
-	
 	document.querySelector(".carousel_button--left").style.display = "block";
-	
-	
 	document.querySelectorAll(".carousel-slide").forEach(e => {
-
-				if (e.classList.contains("currentSlide") && e.classList.contains("lastSlide")) {
-					console.log("object");
-					document.querySelector(".carousel_button--right").style.display = "none";
-				}
-			})
+		if (e.classList.contains("currentSlide") && e.classList.contains("lastSlide")) {
+					document.querySelector(".carousel_button--right").style.display = "none";}})
 			track.style.transform += "translateX(-50vw)";
 			currentSlide.classList.remove("currentSlide");
 			NextSlide.classList.add("currentSlide");
-//			document.querySelector(".carousel_button--right").style.display = "block";
-		removeprevbutton()
-	})
-	
-		
+		removeprevbutton()})
 	prevButton.addEventListener("click", e =>{
 	const currentSlide = track.querySelector(".currentSlide");
 	const prevSlide = currentSlide.previousElementSibling;
 	const amounttomove = prevSlide.style.transform.slideWidth;
-	
 	track.style.transform += "translateX(50vw)";
 	currentSlide.classList.remove("currentSlide");
 	prevSlide.classList.add("currentSlide");
@@ -109,7 +92,6 @@ function getfetured(post) {
 	})			
 })
 }
-
 
 function featuredyes(featdata) {
 	featdata.forEach(showfeatured)
@@ -125,30 +107,18 @@ function showfeatured(featuredata){
 	postCopy.querySelector(".carousel-slide img").addEventListener("click", e =>{
 			window.location.href = `work_single.html?id=${featuredata.id}`;
 	})
-	
-
-	
 	img.setAttribute("src", imgPath)
-	img.setAttribute("alt", "Poster of the movie " + featuredata.title.rendered);
-	
-//	const h1 = postCopy.querySelector("h1");
-//	h1.textContent = featuredata.title.rendered;
-
-//	console.log(featuredata.querySelector(".carousel-slide").classList.contains("lastslide"));
-	
+	img.setAttribute("alt", "Poster of the work " + featuredata.title.rendered);
 	function appendcarnav(){
 		if (featuredata.featured == 1){
 		document.querySelector(".caroselnav").appendChild(carnavcopy);
 	}}
 	appendcarnav()
 	function appendfeatured(){
-	
 	if (featuredata.featured == 1)
 	{document.querySelector(".carousel_track").appendChild(postCopy);
 	}}
-	appendfeatured()
-}
-
+	appendfeatured()}
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
 var currentScrollPos = window.pageYOffset;
@@ -159,6 +129,88 @@ var currentScrollPos = window.pageYOffset;
   }
   prevScrollpos = currentScrollPos;
 }
+// featured small	-----------------------------
+
+function getfeturedsmall(post) {
+	const template = document.querySelector(".template").content;
+	const postCopy = template.cloneNode(true);
+	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/work?per_page=100").then(res => res.json()).then(featuresmall).then(() => {
+//	
+	const track = document.querySelector(".carousel_tracksmall");
+	const slides = Array.from(track.children);
+	const lastslide = slides.length -1;
+	slides[0].classList.add("currentSlide");
+	slides[lastslide].classList.add("lastSlide");
+		console.log(slides);
+		console.log(lastslide);
+	const slideWidth = slides[0].getBoundingClientRect().width;	
+		console.log(slideWidth);
+	var intervalID = window.setInterval(myCallback, 3000);	
+	
+	function myCallback(){
+//		const setslidePosition = (slide, index) =>{
+//		$(".carousel_tracksmall").css({"transform":"translateX(" + slideWidth + "px)"});
+		track.style.transform += "translateX(-" + slideWidth + "px)";	
+//		};
+		
+	}
+	
+//	function removeprevbutton(){
+//	if (document.querySelector(".carousel-slide").classList.contains("currentSlide")){
+//	document.querySelector(".carousel_button--left").style.display = "none";}	}
+//	removeprevbutton()
+//	nextButton.addEventListener("click", e =>{
+//	const currentSlide = track.querySelector(".currentSlide");
+//	const NextSlide = currentSlide.nextElementSibling;
+//	const amounttomove = NextSlide.style.transform.slideWidth;
+//	const lastSlide = track.querySelector(".lastSlide")
+//	document.querySelector(".carousel_button--left").style.display = "block";
+//	document.querySelectorAll(".carousel-slide").forEach(e => {
+//		if (e.classList.contains("currentSlide") && e.classList.contains("lastSlide")) {
+//					document.querySelector(".carousel_button--right").style.display = "none";}})
+//			track.style.transform += "translateX(-50vw)";
+//			currentSlide.classList.remove("currentSlide");
+//			NextSlide.classList.add("currentSlide");
+//		removeprevbutton()})
+//	prevButton.addEventListener("click", e =>{
+//	const currentSlide = track.querySelector(".currentSlide");
+//	const prevSlide = currentSlide.previousElementSibling;
+//	const amounttomove = prevSlide.style.transform.slideWidth;
+//	track.style.transform += "translateX(50vw)";
+//	currentSlide.classList.remove("currentSlide");
+//	prevSlide.classList.add("currentSlide");
+//	document.querySelector(".carousel_button--right").style.display = "block";
+//	removeprevbutton()
+//	})			
+})
+}
+function featuresmall(featdata) {
+	featdata.forEach(showfeaturedsmall)
+}
+
+function showfeaturedsmall(featuredata){
+	const template = document.querySelector(".featuredtemplatesmall").content;
+	const postCopy = template.cloneNode(true);
+	const carnavcopy = postCopy.querySelector("button");
+	
+	const imgPath = featuredata.cover.guid;
+	const img = postCopy.querySelector("img");
+	
+	postCopy.querySelector(".carousel-slidesmall img").addEventListener("click", e =>{
+			window.location.href = `work_single.html?id=${featuredata.id}`;
+	})
+	img.setAttribute("src", imgPath)
+	img.setAttribute("alt", "Poster of the work " + featuredata.title.rendered);
+	function appendcarnav(){
+		if (featuredata.featured == 1){
+		document.querySelector(".caroselnav").appendChild(carnavcopy);
+	}}
+	appendcarnav()
+	function appendfeatured(){
+	if (featuredata.featured == 1)
+	{document.querySelector(".carousel_tracksmall").appendChild(postCopy);
+	}}
+	appendfeatured()}
 
 
 function getmedium() {
@@ -185,24 +237,13 @@ function showmediumPost(post) {
 			
 				classesare.forEach(t =>{
 					e.style.display = "none";
-					console.log(t == returnname);
+//					console.log(t == returnname);
 				if (t == returnname) {
-					console.log("object");
+//					console.log("object");
 				e.style.display = "block";
 				}
-					
-//					t != returnname.style.display = "none";
 		})
-			
-			
 				})
-		
-		
-//		console.log(infowrapper.classList.contains);
-//		if (document.querySelectorAll(".seemore").classList.contains == returnname) {
-//			infowrapper.style.display = "none";   
-//  }
-		
 	})
 	
  document.querySelector(".mediumnav").appendChild(postCopy)}

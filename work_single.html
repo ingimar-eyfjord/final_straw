@@ -26,7 +26,26 @@
 
     </nav>
 </header>
-	
+	<!-- Burger -->
+	<header id="burger"> <a id="logo-burger" href="index.html">
+        <img src="graphics/esben-logo.png" alt="Esben Klemann">
+    </a>
+  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+  <label for="openSidebarMenu" class="sidebarIconToggle">
+  <div class="spinner diagonal part-1"></div>
+  <div class="spinner horizontal"></div>
+  <div class="spinner diagonal part-2"></div>
+  </label>
+  <div id="sidebarMenu">
+    <ul class="sidebarMenuInner">
+      <li><a class="nav-a" href="index.html">Home</a></li>
+      <li><a href="work.html" class="nav-active">Work</a></li>
+      <li><a class="nav-a" href="about.html">About</a></li>
+      <li><a class="nav-a" href="store.html">Store</a></li>
+    </ul>
+  </div>
+	</header>
+	<!-- Burger ends -->
 <section id="workSingle"> </section>
 	    <section class="featured--worksingle">
         <button class="carousel_button carousel_button--left"><img src="graphics/previous.svg" alt="" />
@@ -41,7 +60,7 @@
 
     </section>
 	<template class="featuredtemplate">
-   <div class="carousel_track"> </div>
+   <div class="carousel_track-work_single"> </div>
 
         <button class="caroselnavbutton hidden"></button>
     </template>

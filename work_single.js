@@ -32,7 +32,7 @@ function showPost(post) {
 	var id = url.searchParams.get("id");
 	
 	post.slideshow.forEach(e => {
-		slideshow.querySelector(".carousel_track").innerHTML += `<div class="carousel-slide currentSlide"><img class="featuredimage_work" src="${e.guid}"></div>`;
+		slideshow.querySelector(".carousel_track-work_single").innerHTML += `<div class="carousel-slide currentSlide"><img class="featuredimage_work" src="${e.guid}"></div>`;
 	})
 
 	function appendSlide() {
@@ -51,7 +51,7 @@ function getfetured(post) {
 	const postCopy = template.cloneNode(true);
 	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/work?per_page=100").then(res => res.json()).then(featuredyes).then(() => {
 	
-	const track = document.querySelector(".carousel_track");
+	const track = document.querySelector(".carousel_track-work_single");
 	const slides = Array.from(track.children);
 	const lastslide = slides.length - 3;
 		
@@ -145,7 +145,7 @@ function showfeatured(featuredata){
 	
 
 	function appendWork() {
-		if (featuredata.id == id) document.querySelector(".carousel_track").appendChild(postCopy);
+		if (featuredata.id == id) document.querySelector(".carousel_track-work_single").appendChild(postCopy);
 	}
 	appendWork()
 }
