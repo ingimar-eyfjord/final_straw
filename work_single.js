@@ -1,6 +1,7 @@
 // JavaScript Document
 window.addEventListener("DOMContentLoaded", getData);
 window.addEventListener("DOMContentLoaded", getfetured);
+window.addEventListener("DOMContentLoaded", getfeturedsmall);
 function getData() {
 	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/work?per_page=100").then(res => res.json()).then(handleData)
 }
@@ -109,8 +110,6 @@ function getfetured(post) {
 	})			
 })
 }
-
-
 function featuredyes(featdata) {
 	featdata.forEach(showfeatured)
 }
@@ -118,25 +117,6 @@ function showfeatured(featuredata){
 	const template = document.querySelector(".featuredtemplate").content;
 	const postCopy = template.cloneNode(true);
 	const carnavcopy = postCopy.querySelector("button");
-	
-//	const imgPath = featuredata.cover.guid;
-//	const img = postCopy.querySelector("img");
-//	
-//	postCopy.querySelector(".carousel-slide img").addEventListener("click", e =>{
-//			window.location.href = `work_single.html?id=${featuredata.id}`;
-//	})
-	
-//featuredata.slideshow.forEach(e => {
-//		postCopy.querySelector(".carousel-slide").innerHTML += `<img class="featuredimage" src="${e.guid}">`;
-//	})
-	
-//	img.setAttribute("src", imgPath)
-//	img.setAttribute("alt", "Poster of the movie " + featuredata.title.rendered);
-	
-//	const h1 = postCopy.querySelector("h1");
-//	h1.textContent = featuredata.title.rendered;
-
-//	console.log(featuredata.querySelector(".carousel-slide").classList.contains("lastslide"));
 	
 	var url_string = (window.location.href).toLowerCase();
 	var url = new URL(url_string);
@@ -150,13 +130,72 @@ function showfeatured(featuredata){
 	appendWork()
 }
 
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-10vh";
-  }
-  prevScrollpos = currentScrollPos;
+// featured small	-----------------------------
+
+function getfeturedsmall(post) {
+	const template = document.querySelector(".template").content;
+	const postCopy = template.cloneNode(true);
+	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/work?per_page=100").then(res => res.json()).then(featuresmall).then(() => {
+//	
+	const track = document.querySelector(".track-mini");
+	const slides = Array.from(track.children);
+		slides[0].classList.add("currentSlide");	
+	const lastslide = slides.length -1;
+		console.log(slides);
+	
+	slides[lastslide].classList.add("lastSlide");
+//		console.log(slides);
+		
+	const slideWidth = slides[0].getBoundingClientRect().width;	
+		console.log(slideWidth);
+	var intervalID = window.setInterval(myCallback, 3000);	
+	
+	function myCallback(){
+		function settofirstslide(){
+			slides[0].classList.add("currentSlide");
+			track.style.transform += "translateX(" + slideWidth * slides.length + "px)";
+			console.log("hey");
+		}
+			const currentSlide = track.querySelector(".currentSlide");
+		const prevSlide = currentSlide.previousElementSibling;
+	const NextSlide = currentSlide.nextElementSibling;
+		currentSlide.classList.remove("currentSlide");
+		NextSlide.classList.add("currentSlide");
+		track.style.transform += "translateX(-" + slideWidth + "px)";
+		console.log(slides);
+		document.querySelectorAll(".carousel-slidesmall").forEach(e => {
+		if (e.classList.contains("currentSlide") && e.classList.contains("lastSlide")) {
+			slides[lastslide].classList.remove("currentSlide");
+			track.style.transform += "translateX(-" + slideWidth + "px)";
+			settofirstslide();}})}		
+})
+}
+function featuresmall(featdata) {
+	featdata.forEach(showfeaturedsmall)
+}
+
+function showfeaturedsmall(featuredata){
+	const template = document.querySelector(".featuredtemplatesmall").content;
+	const postCopy = template.cloneNode(true);
+	const carnavcopy = postCopy.querySelector("button");
+	
+featuredata.slideshow.forEach(e => {
+		postCopy.querySelector(".track-mini").innerHTML += `<div class="carousel-slidesmall"><img class="featuredimage_work" src="${e.guid}"></div>`;
+	})
+
+	function appendSlide() {
+		if (featuredata.id == id) document.querySelector(".featuredsmall").appendChild(template);
+	}
+	appendSlide()
+
+var url_string = (window.location.href).toLowerCase();
+	var url = new URL(url_string);
+	var id = url.searchParams.get("id");
+	
+	
+
+	function appendWork() {
+		if (featuredata.id == id) document.querySelector(".featuredsmall").appendChild(postCopy);
+	}
+	appendWork()
 }

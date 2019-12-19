@@ -137,51 +137,36 @@ function getfeturedsmall(post) {
 	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/work?per_page=100").then(res => res.json()).then(featuresmall).then(() => {
 //	
 	const track = document.querySelector(".carousel_tracksmall");
+	
+	
 	const slides = Array.from(track.children);
 	const lastslide = slides.length -1;
 	slides[0].classList.add("currentSlide");
 	slides[lastslide].classList.add("lastSlide");
-		console.log(slides);
+//		console.log(slides);
 		console.log(lastslide);
 	const slideWidth = slides[0].getBoundingClientRect().width;	
 		console.log(slideWidth);
 	var intervalID = window.setInterval(myCallback, 3000);	
 	
 	function myCallback(){
-//		const setslidePosition = (slide, index) =>{
-//		$(".carousel_tracksmall").css({"transform":"translateX(" + slideWidth + "px)"});
-		track.style.transform += "translateX(-" + slideWidth + "px)";	
-//		};
-		
-	}
-	
-//	function removeprevbutton(){
-//	if (document.querySelector(".carousel-slide").classList.contains("currentSlide")){
-//	document.querySelector(".carousel_button--left").style.display = "none";}	}
-//	removeprevbutton()
-//	nextButton.addEventListener("click", e =>{
-//	const currentSlide = track.querySelector(".currentSlide");
-//	const NextSlide = currentSlide.nextElementSibling;
-//	const amounttomove = NextSlide.style.transform.slideWidth;
-//	const lastSlide = track.querySelector(".lastSlide")
-//	document.querySelector(".carousel_button--left").style.display = "block";
-//	document.querySelectorAll(".carousel-slide").forEach(e => {
-//		if (e.classList.contains("currentSlide") && e.classList.contains("lastSlide")) {
-//					document.querySelector(".carousel_button--right").style.display = "none";}})
-//			track.style.transform += "translateX(-50vw)";
-//			currentSlide.classList.remove("currentSlide");
-//			NextSlide.classList.add("currentSlide");
-//		removeprevbutton()})
-//	prevButton.addEventListener("click", e =>{
-//	const currentSlide = track.querySelector(".currentSlide");
-//	const prevSlide = currentSlide.previousElementSibling;
-//	const amounttomove = prevSlide.style.transform.slideWidth;
-//	track.style.transform += "translateX(50vw)";
-//	currentSlide.classList.remove("currentSlide");
-//	prevSlide.classList.add("currentSlide");
-//	document.querySelector(".carousel_button--right").style.display = "block";
-//	removeprevbutton()
-//	})			
+		function settofirstslide(){
+			slides[0].classList.add("currentSlide");
+			track.style.transform += "translateX(" + slideWidth * slides.length + "px)";
+			console.log("hey");
+		}
+			const currentSlide = track.querySelector(".currentSlide");
+		const prevSlide = currentSlide.previousElementSibling;
+	const NextSlide = currentSlide.nextElementSibling;
+		currentSlide.classList.remove("currentSlide");
+		NextSlide.classList.add("currentSlide");
+		track.style.transform += "translateX(-" + slideWidth + "px)";
+		console.log(slides);
+		document.querySelectorAll(".carousel-slidesmall").forEach(e => {
+		if (e.classList.contains("currentSlide") && e.classList.contains("lastSlide")) {
+			slides[lastslide].classList.remove("currentSlide");
+			track.style.transform += "translateX(-" + slideWidth + "px)";
+			settofirstslide();}})}		
 })
 }
 function featuresmall(featdata) {

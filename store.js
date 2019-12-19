@@ -1,6 +1,7 @@
 // JavaScript Document
 window.addEventListener("DOMContentLoaded", getData);
 window.addEventListener("DOMContentLoaded", getfetured);
+window.addEventListener("DOMContentLoaded", getfeturedsmall);
 window.addEventListener("DOMContentLoaded", getmedium);
 function getData() {
 	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/store?per_page=100").then(res => res.json()).then(handleData)
@@ -31,7 +32,7 @@ function showPost(post) {
 	infowrapper.classList.add(`${classadd}`);
 //		console.log(classadd);console.log(infowrapper);
 //	infowrapper.classList.add("$[post.medium.title.rendered]");
-		console.log(infowrapper);
+//		console.log(infowrapper);
 	infowrapper.setAttribute("value", classadd)
 	})
 	
@@ -45,7 +46,7 @@ function getfetured() {
 	
 	const track = document.querySelector(".storecarousel_track");
 	const slides = Array.from(track.children);
-		console.log(slides.length);
+//		console.log(slides.length);
 	const lastslide = slides.length - 3;
 		
 		
@@ -59,7 +60,7 @@ function getfetured() {
 	slides[0].classList.add("currentSlide");
 	slides[lastslide].classList.add("lastSlide");
 	const slideWidth = slides[0].getBoundingClientRect().width;	
-	console.log(slides);
+//	console.log(slides);
 		
 		function removeprevbutton(){
 		if (document.querySelector(".storecarousel-slide").classList.contains("currentSlide")){
@@ -135,6 +136,74 @@ function showfeatured(featuredata){
 	appendfeatured()
 }
 
+// featured small	-----------------------------
+
+function getfeturedsmall(post) {
+	const template = document.querySelector(".template").content;
+	const postCopy = template.cloneNode(true);
+	fetch("https://iesdesigner.eu/school-folder/2-semester/final-straw/wordpress/wp-json/wp/v2/store?per_page=100").then(res => res.json()).then(featuresmall).then(() => {
+//	
+	const track = document.querySelector(".carousel_tracksmall");
+	
+	
+	const slides = Array.from(track.children);
+	const lastslide = slides.length -1;
+	slides[0].classList.add("currentSlide");
+	slides[lastslide].classList.add("lastSlide");
+//		console.log(slides);
+		console.log(lastslide);
+	const slideWidth = slides[0].getBoundingClientRect().width;	
+		console.log(slideWidth);
+	var intervalID = window.setInterval(myCallback, 3000);	
+	
+	function myCallback(){
+		function settofirstslide(){
+			slides[0].classList.add("currentSlide");
+			track.style.transform += "translateX(" + slideWidth * slides.length + "px)";
+			console.log("hey");
+		}
+			const currentSlide = track.querySelector(".currentSlide");
+		const prevSlide = currentSlide.previousElementSibling;
+	const NextSlide = currentSlide.nextElementSibling;
+		currentSlide.classList.remove("currentSlide");
+		NextSlide.classList.add("currentSlide");
+		track.style.transform += "translateX(-" + slideWidth + "px)";
+		console.log(slides);
+		document.querySelectorAll(".carousel-slidesmall").forEach(e => {
+		if (e.classList.contains("currentSlide") && e.classList.contains("lastSlide")) {
+			slides[lastslide].classList.remove("currentSlide");
+			track.style.transform += "translateX(-" + slideWidth + "px)";
+			settofirstslide();}})}		
+})
+}
+function featuresmall(featdata) {
+	featdata.forEach(showfeaturedsmall)
+}
+
+function showfeaturedsmall(featuredata){
+	const template = document.querySelector(".featuredtemplatesmall").content;
+	const postCopy = template.cloneNode(true);
+	const carnavcopy = postCopy.querySelector("button");
+	
+	const imgPath = featuredata.cover.guid;
+	const img = postCopy.querySelector("img");
+	
+	postCopy.querySelector(".carousel-slidesmall img").addEventListener("click", e =>{
+			window.location.href = `work_single.html?id=${featuredata.id}`;
+	})
+	img.setAttribute("src", imgPath)
+	img.setAttribute("alt", "Poster of the work " + featuredata.title.rendered);
+	function appendcarnav(){
+		if (featuredata.featured == 1){
+		document.querySelector(".caroselnav").appendChild(carnavcopy);
+	}}
+	appendcarnav()
+	function appendfeatured(){
+	if (featuredata.featured == 1)
+	{document.querySelector(".carousel_tracksmall").appendChild(postCopy);
+	}}
+	appendfeatured()}
+
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
 var currentScrollPos = window.pageYOffset;
@@ -171,9 +240,9 @@ function showmediumPost(post) {
 			
 				classesare.forEach(t =>{
 					e.style.display = "none";
-					console.log(t == returnname);
+//					console.log(t == returnname);
 				if (t == returnname) {
-					console.log("object");
+//					console.log("object");
 				e.style.display = "block";
 				}
 		})

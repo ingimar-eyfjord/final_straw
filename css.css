@@ -949,6 +949,9 @@ transform: translateX(50%);}
         opacity: 1;
     }
 }
+.storefeatured{
+	display: none;
+}
 .about-first-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1149,6 +1152,7 @@ padding-top: 0.01vw;
 	}
 	.worksingletitle{
 		font-size: 8vw;
+		padding-bottom: 5vw;
 	}
 	.worksingle-year{
 		font-size: 6vw!important;
@@ -1163,11 +1167,26 @@ padding-top: 0.01vw;
 		padding-bottom: 0;
 		padding-left: 6.5vw!important;
 	}
+	.Woroksinglebodyinfo p{
+		padding-top:2vw!important;
+	}
 	.worksingle-location{
 		font-size: 4vw!important;
 		line-height: 4vw;
 	}
+	#workSingle{
+		display: grid;
+		max-width: 100vw;
+		grid-template-rows: 40vh 15vh 20vh;
+	}
+	.singleWorkPoster{
+		max-width: 100vw;
+		height: 40vh;
+		width: 100vw;
+		object-fit: cover;
+	}
 	.featured--worksingle{
+		display: none;
 		width: 100vw;
 		height: 10vh;
 	}
@@ -1176,9 +1195,15 @@ padding-top: 0.01vw;
 		
 	}
 	.carousel_track-work_single{
-		height: 10vh;
-		
+		height: 10vh;	}
+	.track-mini{
+		display:flex;
 	}
+	.featuredimage_work{
+		width: 100vw!important;
+		height: 40vh!important;
+	}
+
 	footer{
 		margin-top: 5vh;
 		padding-top: 0vh;
@@ -1259,7 +1284,8 @@ padding-top: 0.01vw;
 
 	.mediumnav{
 		max-width: 100%;
-	padding-bottom: 4vh
+	padding-bottom: 4vh;
+		padding-top:4vh;
 	}
 	.scrollarrow{
 		display: none;
@@ -1272,6 +1298,11 @@ padding-top: 0.01vw;
 		grid-template-columns: 1fr 1fr;
 		max-width: 100%;
 	}
+	#store {
+   		padding: 0;		
+		grid-template-columns: 1fr 1fr;
+		max-width: 100%;
+}
 	#workindex{
 		display: none;
 	}
@@ -1302,10 +1333,19 @@ padding-top: 0.01vw;
 	.infowrapper p{
 		font-size: 4vw;
 	}
-	footer li{
-		font-size: 2vw;
+	.footer-content{
+		display: grid;
+		grid-template-rows:auto;
+		grid-template-columns: auto;
 	}
-	.footer.footer-links li, a{font-size:  2vw;}
+	footer li{
+		font-size: 3vw;
+		float: right;
+	}
+	
+	.footer-logo img{width: 40vw!important;}
+	.footer-links{display: none;}
+	.footer-some{display:none;}
 	
 	
 /*
@@ -1460,7 +1500,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     display: grid;
     grid-template-rows: 100vh;
     width: 100vw;
-    height: 80vh;
+    height: 40vh;
     grid-row: 1;
     overflow: hidden;
 	}
@@ -1468,7 +1508,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 .carousel_tracksmall {
     display: flex;
     flex-flow: row;
-    height: 100%;
+
     position: relative;
     transition: transform 250ms ease-in;}
 .carousel-slidemall {
@@ -1481,10 +1521,43 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
 .carousel-slidesmall img {
 	width: 100vw;
+	height: 40vh;
+	object-fit: cover;
     position: relative;
-    height: auto;
 	cursor: pointer;
-	}}
+	}
+	#store-single{
+		padding: 0;
+		display:grid!important;
+		grid-template-columns: 1fr!important;
+			grid-template-rows: auto auto auto!important;
+		}
+	.store-single-img{
+		width: 100vw;
+	height: 40vh;
+		object-fit: cover;
+		grid-row: 1!important;
+		grid-column: 1!important;
+	}
+	.storesingle-infowrapper{
+		width: 100vw;
+	height: 40vh;
+		grid-row:2!important;
+		grid-column: 1;
+		display: grid!important;
+		grid-template-rows: auto auto auto auto;
+	}
+	.storesingle-infowrapper h1, p{
+		font-size: 5vw!important;
+		line-height: 1!important;
+	}
+	.arrow{
+		position: absolute;
+		padding-top: 1vw;
+	}
+	}
+
+
 
 
 
